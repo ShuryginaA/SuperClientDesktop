@@ -75,7 +75,11 @@ public class RegistrationForm {
                         .build();
                 String response = client.send(request, HttpResponse.BodyHandlers.ofString()).body();
                 if(response.equals("Success")){
-
+                    JOptionPane.showMessageDialog(null,
+                            "Вы успешно зарегистрированы, " +
+                                    "пожалуйста, войдите в систему.",
+                            "Успех",
+                            JOptionPane.INFORMATION_MESSAGE);
                 }
             }
         });

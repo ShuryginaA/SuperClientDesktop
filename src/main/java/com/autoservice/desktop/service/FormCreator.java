@@ -1,9 +1,12 @@
 package com.autoservice.desktop.service;
 
+import com.autoservice.desktop.data.AuthDto;
 import com.autoservice.desktop.ui.CustomerForm;
 import com.autoservice.desktop.ui.ManagerForm;
 import com.autoservice.desktop.ui.MasterForm;
 import com.autoservice.desktop.ui.RegistrationForm;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.NoArgsConstructor;
 
 import javax.swing.*;
@@ -11,8 +14,13 @@ import javax.swing.*;
 
 @NoArgsConstructor
 public class FormCreator {
-    public void createFormLogin(String response){
-        if(response.contains("MANAGER"))
+
+    public static Long userId;
+    public void createFormAfterLogin(String response) throws JsonProcessingException {
+        var objectMapper = new ObjectMapper();
+        AuthDto authDto = objectMapper.readValue(response, AuthDto.class);
+        userId=authDto.getId();
+        if(authDto.getRoleName().equals("MANAGER"))
         {
             JFrame loginFrame=new JFrame("Manager");
             loginFrame.setContentPane(new ManagerForm().getManagerForm());
@@ -21,7 +29,7 @@ public class FormCreator {
             loginFrame.setVisible(true);
         }
         else
-        if(response.contains("MASTER"))
+        if(authDto.getRoleName().equals("MASTER"))
         {
             JFrame loginFrame=new JFrame("Master");
             loginFrame.setContentPane(new MasterForm().getMasterForm());
@@ -30,7 +38,7 @@ public class FormCreator {
             loginFrame.setVisible(true);
         }
 
-        else if (response.contains("CUSTOMER")) {
+        else if (authDto.getRoleName().equals("CUSTOMER")) {
             JFrame loginFrame=new JFrame("Customer");
             loginFrame.setContentPane(new CustomerForm().getCustomerForm());
             loginFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

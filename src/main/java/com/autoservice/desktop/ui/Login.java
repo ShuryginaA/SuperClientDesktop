@@ -64,7 +64,7 @@ public class Login {
 
         try {
             String response=client.send(request, HttpResponse.BodyHandlers.ofString()).body();
-            formCreator.createFormLogin(response);
+            formCreator.createFormAfterLogin(response);
 
         } catch (IOException | InterruptedException ex) {
             ex.printStackTrace();
