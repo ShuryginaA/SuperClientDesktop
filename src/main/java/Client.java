@@ -9,7 +9,7 @@ public class Client {
      */
     public static void main(String[] args) {
         JFrame loginFrame=new JFrame("Login");
-        loginFrame.setContentPane(new Login().jpanel);
+        loginFrame.setContentPane(new Login().getJpanel());
         loginFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         loginFrame.pack();
         loginFrame.setVisible(true);

@@ -7,11 +7,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.NoArgsConstructor;
 
 import javax.swing.*;
-import java.io.IOException;
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
 
 
 @NoArgsConstructor
@@ -83,21 +78,5 @@ public class FormCreator {
     }
 
 
-    public static String sendRequestToGetAllOrders() {
-        var client = HttpClient.newHttpClient();
-        String response = "Test";
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create("http://localhost:8080/orders/allOrders"))
-                .header("Content-Type", "application/json")
-                .GET()
-                .build();
-
-        try {
-            response = client.send(request, HttpResponse.BodyHandlers.ofString()).body();
-        } catch (IOException | InterruptedException ex) {
-            ex.printStackTrace();
-        }
-        return response;
-    }
 
 }

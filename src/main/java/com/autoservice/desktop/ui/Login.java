@@ -4,6 +4,7 @@ import com.autoservice.desktop.data.LoginForm;
 import com.autoservice.desktop.service.FormCreator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.Getter;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -14,6 +15,7 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
+@Getter
 public class Login {
     private JTextField username;
     private JPasswordField password;
