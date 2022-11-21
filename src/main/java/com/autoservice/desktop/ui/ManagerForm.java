@@ -16,6 +16,7 @@ public class ManagerForm {
     private JButton getOrdersListButton;
     private JTextArea allOrdersPane;
     private JLabel managLabel;
+    private FormCreator formCreator=new FormCreator();
 
     public ManagerForm() {
         getOrdersListButton.addActionListener(new ActionListener() {
@@ -28,7 +29,13 @@ public class ManagerForm {
         addNewOrderButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+           formCreator.createFormNewOrder();
+            }
+        });
+        changeOrderButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                formCreator.createFormEditOrder();
             }
         });
     }

@@ -47,6 +47,7 @@
           </grid>
         </constraints>
         <properties>
+          <editable value="false"/>
           <text value="Заказы"/>
         </properties>
       </component>

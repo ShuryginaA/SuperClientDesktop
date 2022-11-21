@@ -23,15 +23,7 @@ public class CustomerForm {
     private JTextField timeField;
     private JScrollPane freeTimePane;
     private JScrollPane ordersPane;
-    private JButton showFreeTimeButton;
-
     public CustomerForm() {
-        showFreeTimeButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-            }
-        });
         bookButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

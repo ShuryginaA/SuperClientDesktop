@@ -53,7 +53,7 @@ public class FormCreator {
     public void createFormRegister() {
         JFrame registerForm = new JFrame("Register");
         registerForm.setContentPane(new RegistrationForm().getRegistration());
-        registerForm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        registerForm.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         registerForm.pack();
         registerForm.setVisible(true);
     }
@@ -61,7 +61,23 @@ public class FormCreator {
     public void createFormNewOrder() {
         JFrame registerForm = new JFrame("New Order");
         registerForm.setContentPane(new OrderForm().getOrderForm());
-        registerForm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        registerForm.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        registerForm.pack();
+        registerForm.setVisible(true);
+    }
+
+    public void createFormEditOrder() {
+        JFrame registerForm = new JFrame("Edit Order");
+        registerForm.setContentPane(new EditOrderForm().getEditOrderForm());
+        registerForm.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        registerForm.pack();
+        registerForm.setVisible(true);
+    }
+
+    public void createFormChangeStatus() {
+        JFrame registerForm = new JFrame("Change status");
+        registerForm.setContentPane(new ChangeOrderStatusForm().getChangeOrderStatus());
+        registerForm.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         registerForm.pack();
         registerForm.setVisible(true);
     }
