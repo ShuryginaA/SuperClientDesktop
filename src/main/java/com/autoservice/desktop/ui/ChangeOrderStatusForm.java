@@ -1,16 +1,15 @@
 package com.autoservice.desktop.ui;
 
-import com.autoservice.desktop.service.RequestMaker;
+import com.autoservice.desktop.service.UtilClass;
 import lombok.Getter;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Objects;
 
 @Getter
 public class ChangeOrderStatusForm {
-    private JPanel changeOrderStatus;
+    private JPanel changeOrderStatusForm;
     private JTextField id;
     private JComboBox status;
     private JButton okButton;
@@ -35,7 +34,7 @@ public class ChangeOrderStatusForm {
                             "Ошибка",
                             JOptionPane.WARNING_MESSAGE);
                 }
-                RequestMaker.sendRequestToChangeStatus(
+                UtilClass.sendRequestToChangeStatus(
                         id.getText(), tmpStatus
                 );
             }

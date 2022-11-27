@@ -64,7 +64,7 @@ public class FormCreator {
 
     public void createFormEditOrder() {
         JFrame registerForm = new JFrame("Edit Order");
-        registerForm.setContentPane(new EditOrderForm().getEditOrderForm());
+        registerForm.setContentPane(new EditOrderForm().getEditOrder());
         registerForm.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         registerForm.pack();
         registerForm.setVisible(true);
@@ -72,7 +72,7 @@ public class FormCreator {
 
     public void createFormChangeStatus() {
         JFrame registerForm = new JFrame("Change status");
-        registerForm.setContentPane(new ChangeOrderStatusForm().getChangeOrderStatus());
+        registerForm.setContentPane(new ChangeOrderStatusForm().getChangeOrderStatusForm());
         registerForm.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         registerForm.pack();
         registerForm.setVisible(true);

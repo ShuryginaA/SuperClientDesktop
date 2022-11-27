@@ -1,7 +1,7 @@
 package com.autoservice.desktop.ui;
 
 import com.autoservice.desktop.service.FormCreator;
-import com.autoservice.desktop.service.RequestMaker;
+import com.autoservice.desktop.service.UtilClass;
 import lombok.Getter;
 
 import javax.swing.*;
@@ -21,7 +21,7 @@ public class MasterForm {
         getOrdersListButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                allOrdersPane.setText(RequestMaker.sendRequestToGetAllOrders());
+                allOrdersPane.setText(UtilClass.sendRequestToGetAllOrders());
 
             }
         });
