@@ -17,6 +17,13 @@ public class FormCreator {
     public void createFormAfterLogin(String response) throws JsonProcessingException {
         var objectMapper = new ObjectMapper();
         AuthDto authDto = objectMapper.readValue(response, AuthDto.class);
+        if (authDto.getRoleName().equals("Unauthorized")) {
+            JOptionPane.showMessageDialog(null,
+                    "Вы не зарегистрированы или ввели неверный логин или пароль." +
+                            "Попробуйте снова.",
+                    "Ошибка входа",
+                    JOptionPane.WARNING_MESSAGE);
+        }
         userId = authDto.getId();
         if (authDto.getRoleName().equals("MANAGER")) {
             JFrame managerFrame = new JFrame("Manager");
@@ -36,12 +43,6 @@ public class FormCreator {
             loginFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             loginFrame.pack();
             loginFrame.setVisible(true);
-        } else {
-            JOptionPane.showMessageDialog(null,
-                    "Вы не зарегистрированы или ввели неверный логин или пароль." +
-                            "Попробуйте снова.",
-                    "Ошибка входа",
-                    JOptionPane.WARNING_MESSAGE);
         }
     }
 
@@ -72,6 +73,14 @@ public class FormCreator {
     public void createFormChangeStatus() {
         JFrame registerForm = new JFrame("Change status");
         registerForm.setContentPane(new ChangeOrderStatusForm().getChangeOrderStatus());
+        registerForm.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        registerForm.pack();
+        registerForm.setVisible(true);
+    }
+
+    public void createFormCallBack() {
+        JFrame registerForm = new JFrame("Call me back");
+        registerForm.setContentPane(new CallBackForm().getCallBackForm());
         registerForm.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         registerForm.pack();
         registerForm.setVisible(true);

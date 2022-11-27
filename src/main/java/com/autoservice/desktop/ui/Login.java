@@ -47,6 +47,7 @@ public class Login {
                           "Заполните эти поля и попробуйте снова.",
                   "Ошибка входа",
                   JOptionPane.WARNING_MESSAGE);
+          return;
 
       }
         var client = HttpClient.newHttpClient();
