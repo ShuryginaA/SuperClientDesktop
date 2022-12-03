@@ -32,14 +32,13 @@
           <text value="Мои заказы"/>
         </properties>
       </component>
-      <component id="b30cf" class="javax.swing.JTextArea" binding="orders">
+      <component id="73292" class="javax.swing.JTextArea" binding="ordersField">
         <constraints>
           <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="50"/>
           </grid>
         </constraints>
         <properties>
-          <editable value="false"/>
           <text value="Мои заказы"/>
         </properties>
       </component>

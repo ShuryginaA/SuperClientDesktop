@@ -52,6 +52,31 @@ public class UtilClass {
         return response;
     }
 
+    public static String sendRequestToGetAllUserOrders() {
+        var client = HttpClient.newHttpClient();
+        String response = "Test";
+        var objectMapper = new ObjectMapper();
+        String requestBody="Test";
+        try {
+            requestBody = objectMapper
+                    .writeValueAsString( new IdDto(FormCreator.userId.toString()));
+        } catch (JsonProcessingException ex) {
+            ex.printStackTrace();
+        }
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create("http://localhost:8080/customer/getUserOrders"))
+                .header("Content-Type", "application/json")
+                .POST(HttpRequest.BodyPublishers.ofString(requestBody))
+                .build();
+
+        try {
+            response = client.send(request, HttpResponse.BodyHandlers.ofString()).body();
+        } catch (IOException | InterruptedException ex) {
+            ex.printStackTrace();
+        }
+        return response;
+    }
+
     public static String sendRequestToChangeStatus(String orderId, String status) {
         var client = HttpClient.newHttpClient();
         String response = "Test";
@@ -95,6 +120,31 @@ public class UtilClass {
         return response;
     }
 
+    public static String sendRequestToGetIdByUserName(UsernameDto username) {
+        var client = HttpClient.newHttpClient();
+        String response = "Test";
+        var objectMapper = new ObjectMapper();
+        String requestBody="Test";
+        try {
+            requestBody = objectMapper
+                    .writeValueAsString(username);
+        } catch (JsonProcessingException ex) {
+            ex.printStackTrace();
+        }
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(("http://localhost:8080/customer/getUserId" )))
+                .header("Content-Type", "application/json")
+                .POST(HttpRequest.BodyPublishers.ofString(requestBody))
+                .build();
+
+        try {
+            response = client.send(request, HttpResponse.BodyHandlers.ofString()).body();
+        } catch (IOException | InterruptedException ex) {
+            ex.printStackTrace();
+        }
+        return response;
+    }
+
     public static String sendRequestToUpdateOrder(UpdateOrderDto dto) {
         var client = HttpClient.newHttpClient();
         String response = "Test";
@@ -107,7 +157,7 @@ public class UtilClass {
             ex.printStackTrace();
         }
         HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create(("http://localhost:8080/orders/save" )))
+                .uri(URI.create(("http://localhost:8080/orders/update" )))
                 .header("Content-Type", "application/json")
                 .POST(HttpRequest.BodyPublishers.ofString(requestBody))
                 .build();

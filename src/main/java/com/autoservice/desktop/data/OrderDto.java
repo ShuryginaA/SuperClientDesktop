@@ -7,5 +7,6 @@ public class OrderDto {
     private Long id;
     private String name;
     private String clientName;
+    private String date;
     private String status;
 }
