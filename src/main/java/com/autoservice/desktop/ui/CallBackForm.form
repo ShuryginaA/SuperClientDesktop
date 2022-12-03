@@ -73,7 +73,7 @@
           </grid>
         </constraints>
         <properties>
-          <text value="Ваши пожелания и уточнения"/>
+          <text value=""/>
         </properties>
       </component>
       <component id="453e2" class="javax.swing.JButton" binding="okButton">

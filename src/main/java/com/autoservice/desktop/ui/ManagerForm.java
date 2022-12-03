@@ -1,5 +1,6 @@
 package com.autoservice.desktop.ui;
 
+import com.autoservice.desktop.data.CallBackEntity;
 import com.autoservice.desktop.data.OrderDto;
 import com.autoservice.desktop.service.FormCreator;
 import com.autoservice.desktop.service.UtilClass;
@@ -20,6 +21,8 @@ public class ManagerForm {
     private JButton getOrdersListButton;
     private JTextArea allOrdersPane;
     private JLabel managLabel;
+    private JTextArea callBackTextArea;
+    private JButton getCallBacksButton;
     private FormCreator formCreator=new FormCreator();
 
     public ManagerForm() {
@@ -47,6 +50,20 @@ public class ManagerForm {
             @Override
             public void actionPerformed(ActionEvent e) {
                 formCreator.createFormEditOrder();
+            }
+        });
+        getCallBacksButton.addActionListener(new ActionListener() {
+            @SneakyThrows
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                List<CallBackEntity> callBacks=UtilClass.callBackParser(UtilClass.sendRequestToGetAllCallbacks());
+                callBackTextArea.append("\n");
+                for(CallBackEntity c:callBacks){
+                    callBackTextArea.append("Id: "+ c.getId()+" " +
+                            "Имя клиента: "+c.getName()+" "+"Телефон: "+c.getPhone()+" " +
+                            "Комментарий: "+c.getComment() +"\n");
+                }
+
             }
         });
     }
