@@ -1,5 +1,6 @@
 package com.autoservice.desktop.ui;
 
+import com.autoservice.desktop.service.FormCreator;
 import com.autoservice.desktop.service.UtilClass;
 import lombok.Getter;
 
@@ -34,9 +35,15 @@ public class ChangeOrderStatusForm {
                             "Ошибка",
                             JOptionPane.WARNING_MESSAGE);
                 }
-                UtilClass.sendRequestToChangeStatus(
+                if(UtilClass.sendRequestToChangeStatus(
                         id.getText(), tmpStatus
-                );
+                ).equals("Success")){
+                    JOptionPane.showMessageDialog(null,
+                            "Статус обновлен",
+                            "Успех",
+                            JOptionPane.INFORMATION_MESSAGE);
+                    FormCreator.statusForm.dispose();
+                }
             }
         });
     }

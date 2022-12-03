@@ -7,6 +7,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 
 import javax.swing.*;
+import javax.ws.rs.client.Client;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -68,7 +69,8 @@ public class Login {
         try {
             String response=client.send(request, HttpResponse.BodyHandlers.ofString()).body();
             formCreator.createFormAfterLogin(response);
-
+//            FormCreator.loginFrame.setVisible(false);
+            FormCreator.loginFrame.dispose();
         } catch (IOException | InterruptedException ex) {
             ex.printStackTrace();
         }

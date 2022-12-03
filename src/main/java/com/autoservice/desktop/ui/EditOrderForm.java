@@ -2,6 +2,7 @@ package com.autoservice.desktop.ui;
 
 import com.autoservice.desktop.data.CallBackDto;
 import com.autoservice.desktop.data.UpdateOrderDto;
+import com.autoservice.desktop.service.FormCreator;
 import com.autoservice.desktop.service.UtilClass;
 import lombok.Getter;
 
@@ -37,6 +38,7 @@ public class EditOrderForm {
                             "Заказ обновлен",
                             "Успех",
                             JOptionPane.INFORMATION_MESSAGE);
+                    FormCreator.editForm.dispose();
                 }
             }
         });

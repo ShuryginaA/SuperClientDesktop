@@ -2,6 +2,7 @@ package com.autoservice.desktop.ui;
 
 import com.autoservice.desktop.data.CallBackDto;
 import com.autoservice.desktop.data.ForSavingOrderDto;
+import com.autoservice.desktop.service.FormCreator;
 import com.autoservice.desktop.service.UtilClass;
 import lombok.Getter;
 
@@ -31,8 +32,7 @@ public class OrderForm {
                             JOptionPane.WARNING_MESSAGE);
                     return;
                 }
-                ForSavingOrderDto tmpDto=new ForSavingOrderDto(
-                        name.getText(), Long.parseLong(clientId.getText()), dateAndTime.getText());
+
                 String response = UtilClass.sendRequestToSaveOrder(new ForSavingOrderDto(
                         name.getText(), Long.parseLong(clientId.getText()), dateAndTime.getText()
                 ));
@@ -41,7 +41,9 @@ public class OrderForm {
                             "Заказ отправлен",
                             "Успех",
                             JOptionPane.INFORMATION_MESSAGE);
+                    FormCreator.newOrderForm.dispose();
                 }
+
             }
         });
     }
