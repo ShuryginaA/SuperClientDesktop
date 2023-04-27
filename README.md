@@ -1,5 +1,5 @@
 # SuperClientDesktop
-Desktop client which send requests to the server and display the data.
+Desktop client which sends requests to the server and display the data.
 ## Technical requirements
 * Java 8+ 
 ## Application launch
